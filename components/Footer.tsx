@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-paper/10">
-        <p className="mx-auto max-w-6xl px-5 py-5 text-xs text-paper/50 font-[family-name:var(--font-mono)]">
+        <p className="mx-auto max-w-6xl px-5 py-5 pb-20 md:pb-5 text-xs text-paper/50 font-[family-name:var(--font-mono)]">
           © {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.
         </p>
       </div>

@@ -6,6 +6,7 @@ import { BUSINESS } from "@/lib/services";
 
 const NAV = [
   { href: "/services", label: "Services" },
+  { href: "/portfolio", label: "Portfolio" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Get a quote" },
 ];
@@ -27,7 +28,7 @@ export default function Header() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-7">
-            {NAV.slice(0, 2).map((item) => (
+            {NAV.slice(0, 3).map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

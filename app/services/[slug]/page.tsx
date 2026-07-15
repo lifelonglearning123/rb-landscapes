@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SERVICES, getService, BUSINESS } from "@/lib/services";
+import { projectsForService } from "@/lib/portfolio";
+import ProjectCard from "@/components/ProjectCard";
 import QuoteForm from "@/components/QuoteForm";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rblandscapesanddriveways.com";
@@ -33,6 +35,8 @@ export default async function ServicePage({
   const { slug } = await params;
   const service = getService(slug);
   if (!service) notFound();
+
+  const related = projectsForService(slug);
 
   const schema = {
     "@context": "https://schema.org",
@@ -122,6 +126,32 @@ export default async function ServicePage({
           </div>
         </aside>
       </section>
+
+      {related.length > 0 && (
+        <section className="border-t border-line bg-stone">
+          <div className="mx-auto max-w-6xl px-5 py-14 md:py-20">
+            <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <p className="eyebrow mb-3">Recent {service.name.toLowerCase()}</p>
+                <h2 className="max-w-2xl font-[family-name:var(--font-display)] text-3xl font-extrabold tracking-tight md:text-4xl">
+                  See it before and after.
+                </h2>
+              </div>
+              <Link
+                href="/portfolio"
+                className="shrink-0 font-[family-name:var(--font-mono)] text-sm text-turf underline underline-offset-4"
+              >
+                Full portfolio →
+              </Link>
+            </div>
+            <div className="grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+              {related.slice(0, 3).map((p) => (
+                <ProjectCard key={p.slug} project={p} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }

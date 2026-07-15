@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MobileCallBar from "@/components/MobileCallBar";
 import { BUSINESS, SERVICES, AREAS } from "@/lib/services";
 
 const bricolage = localFont({
@@ -75,6 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main>{children}</main>
         <Footer />
+        <MobileCallBar />
       </body>
     </html>
   );
