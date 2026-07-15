@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette: wet tarmac, cool stone, turf green, aggregate sand */
+  --color-tarmac: #22272e;
+  --color-tarmac-deep: #181c22;
+  --color-paper: #f3f4f1;
+  --color-stone: #e2e2da;
+  --color-line: #c8cbc1;
+  --color-turf: #2e6b3e;
+  --color-turf-bright: #3f8a50;
+  --color-sand: #c2ae87;
+  --color-ink-soft: #4b5259;
+
+  --font-display: var(--font-bricolage), sans-serif;
+  --font-body: var(--font-figtree), sans-serif;
+  --font-mono: var(--font-plex-mono), monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-tarmac);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Surveyor's eyebrow label */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-turf);
+}
+
+/* Slab button: a laid block with a hard turf shadow */
+.btn-slab {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  background: var(--color-tarmac);
+  color: var(--color-paper);
+  padding: 0.9rem 1.6rem;
+  box-shadow: 5px 5px 0 0 var(--color-turf);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.btn-slab:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 0 var(--color-turf);
+}
+.btn-slab:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 0 var(--color-turf);
+}
+.btn-slab-light {
+  background: var(--color-paper);
+  color: var(--color-tarmac);
+  box-shadow: 5px 5px 0 0 var(--color-turf-bright);
+}
+
+.btn-ghost {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  padding: 0.9rem 1.6rem;
+  border: 2px solid var(--color-tarmac);
+  color: var(--color-tarmac);
+  transition: background 120ms ease, color 120ms ease;
+}
+.btn-ghost:hover {
+  background: var(--color-tarmac);
+  color: var(--color-paper);
+}
+
+/* Running-bond mortar pattern (hero + accents) */
+.bond {
+  background-image:
+    linear-gradient(to bottom, transparent calc(100% - 1px), rgba(34, 39, 46, 0.08) calc(100% - 1px)),
+    linear-gradient(to right, transparent calc(100% - 1px), rgba(34, 39, 46, 0.08) calc(100% - 1px));
+  background-size: 168px 56px;
+}
+.bond-offset {
+  background-image:
+    linear-gradient(to right, transparent calc(100% - 1px), rgba(34, 39, 46, 0.08) calc(100% - 1px));
+  background-size: 168px 56px;
+  background-position: 84px 0;
+}
+
+.bond-dark {
+  background-image:
+    linear-gradient(to bottom, transparent calc(100% - 1px), rgba(243, 244, 241, 0.07) calc(100% - 1px)),
+    linear-gradient(to right, transparent calc(100% - 1px), rgba(243, 244, 241, 0.07) calc(100% - 1px));
+  background-size: 168px 56px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  background: #ffffff;
+  border: 1.5px solid var(--color-line);
+  padding: 0.75rem 0.9rem;
+  font-size: 0.95rem;
+  color: var(--color-tarmac);
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--color-turf);
+  outline-offset: 0;
+  border-color: var(--color-turf);
+}
+label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-turf);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
