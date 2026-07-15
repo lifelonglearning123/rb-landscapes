@@ -1,14 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette: wet tarmac, cool stone, turf green, aggregate sand */
+  /* Palette: wet tarmac, cool stone, brand crimson, aggregate sand.
+     NOTE: the accent tokens are still named `turf` (used site-wide as
+     text-turf / bg-turf / border-turf / *-turf-bright) but now hold the
+     logo's crimson red — renaming would collide with the word "turf" in
+     landscaping copy, so the values change while the token names stay. */
   --color-tarmac: #22272e;
   --color-tarmac-deep: #181c22;
   --color-paper: #f3f4f1;
   --color-stone: #e2e2da;
   --color-line: #c8cbc1;
-  --color-turf: #2e6b3e;
-  --color-turf-bright: #3f8a50;
+  --color-turf: #c51131; /* brand red — AA on paper (~5.4:1) & white-on-red (~6:1) */
+  --color-turf-bright: #f52648; /* brighter red for dark surfaces */
   --color-sand: #c2ae87;
   --color-ink-soft: #4b5259;
 

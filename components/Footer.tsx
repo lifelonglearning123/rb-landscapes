@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { BUSINESS, SERVICES, AREAS } from "@/lib/services";
 
 export default function Footer() {
@@ -6,6 +7,13 @@ export default function Footer() {
     <footer className="bg-tarmac-deep text-paper bond-dark">
       <div className="mx-auto max-w-6xl px-5 py-14 grid gap-10 md:grid-cols-3">
         <div>
+          <Image
+            src="/logo-mark.png"
+            alt=""
+            width={480}
+            height={335}
+            className="mb-4 h-11 w-auto"
+          />
           <p className="font-[family-name:var(--font-display)] font-extrabold text-xl">
             R&amp;B LANDSCAPES &amp; DRIVEWAYS
           </p>

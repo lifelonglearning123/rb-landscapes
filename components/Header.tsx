@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { BUSINESS } from "@/lib/services";
 
@@ -18,12 +19,22 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-line">
       <div className="mx-auto max-w-6xl px-5">
         <div className="flex items-center justify-between py-3.5 gap-4">
-          <Link href="/" className="leading-tight" onClick={() => setOpen(false)}>
-            <span className="block font-[family-name:var(--font-display)] font-extrabold text-lg sm:text-xl tracking-tight">
-              R&amp;B <span className="text-turf">LANDSCAPES</span> &amp; DRIVEWAYS
-            </span>
-            <span className="hidden sm:block font-[family-name:var(--font-mono)] text-[0.62rem] tracking-[0.22em] uppercase text-ink-soft">
-              Trowbridge · Wiltshire
+          <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
+            <Image
+              src="/logo-mark.png"
+              alt="R&B Landscapes and Driveways logo"
+              width={480}
+              height={335}
+              priority
+              className="h-8 w-auto sm:h-9"
+            />
+            <span className="leading-tight">
+              <span className="block font-[family-name:var(--font-display)] font-extrabold text-lg sm:text-xl tracking-tight">
+                R&amp;B <span className="text-turf">LANDSCAPES</span> &amp; DRIVEWAYS
+              </span>
+              <span className="hidden sm:block font-[family-name:var(--font-mono)] text-[0.62rem] tracking-[0.22em] uppercase text-ink-soft">
+                Trowbridge · Wiltshire
+              </span>
             </span>
           </Link>
 
