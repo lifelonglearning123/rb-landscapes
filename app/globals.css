@@ -1,18 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette: wet tarmac, cool stone, brand crimson, aggregate sand.
+  /* Palette: wet tarmac, cool stone, brand gold, aggregate sand, fern green.
      NOTE: the accent tokens are still named `turf` (used site-wide as
      text-turf / bg-turf / border-turf / *-turf-bright) but now hold the
-     logo's crimson red — renaming would collide with the word "turf" in
-     landscaping copy, so the values change while the token names stay. */
+     logo's metallic gold — renaming would collide with the word "turf" in
+     landscaping copy, so the values change while the token names stay.
+     Gold is a two-tone system: a burnished gold that clears AA on the light
+     "paper" ground, and a luminous gold for dark surfaces where the pale
+     metallic reads best (mirrors how the logo's gold sits on charcoal). */
   --color-tarmac: #22272e;
   --color-tarmac-deep: #181c22;
   --color-paper: #f3f4f1;
   --color-stone: #e2e2da;
   --color-line: #c8cbc1;
-  --color-turf: #c51131; /* brand red — AA on paper (~5.4:1) & white-on-red (~6:1) */
-  --color-turf-bright: #f52648; /* brighter red for dark surfaces */
+  --color-turf: #906610; /* brand gold — burnished, AA on paper (~4.65:1) & white-on-gold (~5.1:1) */
+  --color-turf-bright: #d1a94e; /* luminous metallic gold for dark surfaces (~6.8:1 on tarmac) */
+  --color-fern: #54711a; /* logo green — secondary accent, AA on paper (~5:1) */
+  --color-fern-bright: #88ac44; /* brighter fern for dark surfaces (~6.5:1 on tarmac-deep) */
   --color-sand: #c2ae87;
   --color-ink-soft: #4b5259;
 
@@ -169,6 +174,21 @@ body {
   animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
+/* Wizard step entrance — each step re-mounts by key */
+@keyframes stepIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.step-in {
+  animation: stepIn 0.34s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
 /* Hero photographic scrim — keeps text ≥ AA over any photo */
 .hero-scrim {
   background:
@@ -203,6 +223,12 @@ textarea:focus {
   outline: 2px solid var(--color-turf);
   outline-offset: 0;
   border-color: var(--color-turf);
+}
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: var(--color-turf);
+  box-shadow: inset 0 0 0 1px var(--color-turf);
 }
 label {
   font-family: var(--font-mono);

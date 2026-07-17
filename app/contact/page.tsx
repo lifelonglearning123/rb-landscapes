@@ -6,66 +6,117 @@ import { BUSINESS } from "@/lib/services";
 export const metadata: Metadata = {
   title: "Get a Free Quote",
   description:
-    "Request a free, no-obligation quote for driveways, patios, landscaping and fencing in Trowbridge and Wiltshire. Call 07738 420527 or send the form.",
+    "Request a free, no-obligation quote for driveways, patios, landscaping and fencing in Trowbridge and Wiltshire. Call 01225 267063 or send the form.",
 };
+
+const TRUST = [
+  "Free written quote",
+  "No call-out fee",
+  "Family-run, Trowbridge-based",
+  "Usually reply the same day",
+];
 
 export default function ContactPage() {
   return (
-    <section className="mx-auto max-w-6xl px-5 py-14 md:py-20 grid gap-12 lg:grid-cols-5">
-      <div className="lg:col-span-2">
-        <p className="eyebrow mb-4">Contact</p>
-        <h1 className="font-[family-name:var(--font-display)] font-extrabold text-4xl md:text-5xl tracking-tight">
-          Get your free quote.
-        </h1>
-        <p className="mt-5 text-ink-soft leading-relaxed">
-          Send the form and we&apos;ll get back to you quickly to arrange a visit — or in many
-          cases we can quote from a good description and photos alone. Prefer to talk? Our phone
-          line is answered around the clock.
-        </p>
-
-        <dl className="mt-8 space-y-5 text-sm">
-          <div>
-            <dt className="eyebrow">Phone (24/7)</dt>
-            <dd className="mt-1">
-              <a className="text-lg font-bold underline decoration-turf" href={`tel:${BUSINESS.phoneHref}`}>
-                {BUSINESS.phone}
-              </a>
-              {" · "}
-              <a className="underline decoration-turf" href={`tel:${BUSINESS.landlineHref}`}>
-                {BUSINESS.landline}
-              </a>
-            </dd>
-          </div>
-          <div>
-            <dt className="eyebrow">Email</dt>
-            <dd className="mt-1 break-all">
-              <a className="underline decoration-turf" href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
-            </dd>
-          </div>
-          <div>
-            <dt className="eyebrow">Based in</dt>
-            <dd className="mt-1">
-              {BUSINESS.address.locality}, {BUSINESS.address.region} {BUSINESS.address.postcode}
-            </dd>
-          </div>
-        </dl>
-
-        <div className="mt-8 border-2 border-turf bg-white p-5">
-          <p className="font-[family-name:var(--font-display)] font-bold">
-            Prefer to book a visit directly?
+    <>
+      {/* Slim header band */}
+      <section className="border-b border-line bg-stone">
+        <div className="mx-auto max-w-6xl px-5 py-12 md:py-16">
+          <p className="eyebrow mb-4">Contact · Free quote</p>
+          <h1 className="max-w-3xl font-[family-name:var(--font-display)] text-4xl font-extrabold tracking-tight md:text-5xl">
+            Let&apos;s price your project.
+          </h1>
+          <p className="mt-4 max-w-2xl leading-relaxed text-ink-soft">
+            Answer three quick questions and we&apos;ll get back to you to arrange a visit — or in
+            many cases quote from a good description and photos alone. Prefer to talk? The phone line
+            is answered around the clock.
           </p>
-          <p className="mt-1 text-sm text-ink-soft">
-            Pick a slot that suits you and we&apos;ll come to you.
-          </p>
-          <Link href="/book" className="btn-slab mt-4 text-sm">Book a free site visit</Link>
+          <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+            {TRUST.map((t) => (
+              <li
+                key={t}
+                className="flex items-center gap-2 font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.12em] text-tarmac"
+              >
+                <span className="grid h-4 w-4 place-items-center rounded-full bg-turf text-paper">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M20 6 9 17l-5-5"
+                      stroke="currentColor"
+                      strokeWidth="3.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+                {t}
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
+      </section>
 
-      <div className="lg:col-span-3">
-        <div className="border-2 border-tarmac bg-stone p-6 md:p-8">
+      <section className="mx-auto grid max-w-6xl gap-12 px-5 pb-28 pt-12 md:pb-20 md:pt-16 lg:grid-cols-5">
+        {/* Site office */}
+        <aside className="lg:col-span-2">
+          <div className="lg:sticky lg:top-24">
+            <div className="border-l-4 border-turf bg-white p-6 shadow-[0_18px_44px_-24px_rgba(24,28,34,0.35)]">
+              <p className="eyebrow mb-5">The site office</p>
+
+              <dl className="space-y-5">
+                <div>
+                  <dt className="font-[family-name:var(--font-mono)] text-[0.66rem] uppercase tracking-[0.16em] text-ink-soft">
+                    Phone · answered 24/7
+                  </dt>
+                  <dd className="mt-1">
+                    <a
+                      className="font-[family-name:var(--font-display)] text-2xl font-extrabold tracking-tight hover:text-turf"
+                      href={`tel:${BUSINESS.phoneHref}`}
+                    >
+                      {BUSINESS.phone}
+                    </a>
+                  </dd>
+                </div>
+                <div className="border-t border-line pt-4">
+                  <dt className="font-[family-name:var(--font-mono)] text-[0.66rem] uppercase tracking-[0.16em] text-ink-soft">
+                    Email
+                  </dt>
+                  <dd className="mt-1 break-all">
+                    <a className="underline decoration-turf underline-offset-2" href={`mailto:${BUSINESS.email}`}>
+                      {BUSINESS.email}
+                    </a>
+                  </dd>
+                </div>
+                <div className="border-t border-line pt-4">
+                  <dt className="font-[family-name:var(--font-mono)] text-[0.66rem] uppercase tracking-[0.16em] text-ink-soft">
+                    Based in
+                  </dt>
+                  <dd className="mt-1 text-sm">
+                    {BUSINESS.address.locality}, {BUSINESS.address.region} {BUSINESS.address.postcode}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+
+            <div className="mt-4 flex items-center justify-between gap-4 border border-line bg-tarmac p-5 text-paper bond-dark">
+              <div>
+                <p className="font-[family-name:var(--font-display)] font-bold">Rather pick a slot?</p>
+                <p className="mt-0.5 text-sm text-paper/70">Book a visit that suits you.</p>
+              </div>
+              <Link
+                href="/book"
+                className="btn-slab btn-slab-light shrink-0 !px-4 !py-2.5 text-sm"
+              >
+                Book online
+              </Link>
+            </div>
+          </div>
+        </aside>
+
+        {/* Wizard */}
+        <div className="lg:col-span-3">
           <QuoteForm />
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

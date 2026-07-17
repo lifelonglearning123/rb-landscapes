@@ -242,10 +242,8 @@ export function getService(slug: string) {
 export const BUSINESS = {
   name: "R&B Landscapes and Driveways",
   legalName: "R&b landscapes and driveways",
-  phone: "07738 420527",
-  phoneHref: "+447738420527",
-  landline: "01225 684538",
-  landlineHref: "+441225684538",
+  phone: "01225 267063",
+  phoneHref: "+441225267063",
   email: "Rblandscapesanddriveways@hotmail.com",
   address: { locality: "Trowbridge", region: "Wiltshire", postcode: "BA14 0BX", country: "GB" },
   tagline: "When we build, we build to last.",

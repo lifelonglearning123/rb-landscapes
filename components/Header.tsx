@@ -23,14 +23,14 @@ export default function Header() {
             <Image
               src="/logo-mark.png"
               alt="R&B Landscapes and Driveways logo"
-              width={480}
-              height={335}
+              width={512}
+              height={512}
               priority
-              className="h-8 w-auto sm:h-9"
+              className="h-9 w-auto sm:h-10 rounded-md"
             />
             <span className="leading-tight">
               <span className="block font-[family-name:var(--font-display)] font-extrabold text-lg sm:text-xl tracking-tight">
-                R&amp;B <span className="text-turf">LANDSCAPES</span> &amp; DRIVEWAYS
+                R&amp;B <span className="text-turf">LANDSCAPES</span> <span className="text-fern">&amp; DRIVEWAYS</span>
               </span>
               <span className="hidden sm:block font-[family-name:var(--font-mono)] text-[0.62rem] tracking-[0.22em] uppercase text-ink-soft">
                 Trowbridge · Wiltshire

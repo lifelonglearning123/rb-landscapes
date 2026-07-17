@@ -10,12 +10,12 @@ export default function Footer() {
           <Image
             src="/logo-mark.png"
             alt=""
-            width={480}
-            height={335}
-            className="mb-4 h-11 w-auto"
+            width={512}
+            height={512}
+            className="mb-4 h-12 w-auto rounded-lg"
           />
           <p className="font-[family-name:var(--font-display)] font-extrabold text-xl">
-            R&amp;B LANDSCAPES &amp; DRIVEWAYS
+            R&amp;B <span className="text-turf-bright">LANDSCAPES</span> <span className="text-fern-bright">&amp; DRIVEWAYS</span>
           </p>
           <p className="mt-2 text-sand font-[family-name:var(--font-mono)] text-xs tracking-[0.18em] uppercase">
             {BUSINESS.tagline}
@@ -25,10 +25,6 @@ export default function Footer() {
             <br />
             <a href={`tel:${BUSINESS.phoneHref}`} className="hover:text-paper underline decoration-turf-bright">
               {BUSINESS.phone}
-            </a>{" "}
-            ·{" "}
-            <a href={`tel:${BUSINESS.landlineHref}`} className="hover:text-paper underline decoration-turf-bright">
-              {BUSINESS.landline}
             </a>
             <br />
             <a href={`mailto:${BUSINESS.email}`} className="hover:text-paper underline decoration-turf-bright break-all">
