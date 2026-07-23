@@ -112,13 +112,6 @@ export default function QuoteForm({ defaultService }: { defaultService?: string 
     setStatus("sending");
     setSubmitError("");
 
-    const extras: string[] = [];
-    if (scale) extras.push(`Approx size: ${scale}`);
-    if (timeframe) extras.push(`Timeframe: ${timeframe}`);
-    const fullMessage = extras.length
-      ? `${message.trim()}\n\n— ${extras.join("\n— ")}`
-      : message.trim();
-
     // Honeypot: read the uncontrolled hidden field the browser would have filled.
     const company =
       (formRef.current?.elements.namedItem("company") as HTMLInputElement | null)?.value ?? "";
@@ -127,7 +120,17 @@ export default function QuoteForm({ defaultService }: { defaultService?: string 
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, email, postcode, service, message: fullMessage, company }),
+        body: JSON.stringify({
+          name,
+          phone,
+          email,
+          postcode,
+          service,
+          scale,
+          timeframe,
+          message: message.trim(),
+          company,
+        }),
       });
       if (!res.ok) throw new Error("Request failed");
       setStatus("sent");

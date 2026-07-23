@@ -34,7 +34,12 @@ export async function POST(req: Request) {
   const [firstName, ...rest] = fullName.split(/\s+/);
   const lastName = rest.join(" ");
   const service = String(data.service);
-  const postcode = typeof data.postcode === "string" ? data.postcode.trim() : "";
+  const email = String(data.email).trim();
+  const phone = String(data.phone).trim();
+  const str = (v: unknown) => (typeof v === "string" ? v.trim() : "");
+  const postcode = str(data.postcode);
+  const scale = str(data.scale);
+  const timeframe = str(data.timeframe);
 
   const headers = {
     Authorization: `Bearer ${token}`,
@@ -54,8 +59,8 @@ export async function POST(req: Request) {
         firstName,
         ...(lastName ? { lastName } : {}),
         name: fullName,
-        email: String(data.email),
-        phone: String(data.phone),
+        email,
+        phone,
         ...(postcode ? { postalCode: postcode } : {}),
         source: "Website quote form",
         tags: ["website-quote", service],
@@ -74,12 +79,30 @@ export async function POST(req: Request) {
   // 2) Attach the enquiry details as a note (best-effort — the contact is
   //    already saved, so a note failure must not fail the submission).
   if (contactId) {
+    const submittedAt = new Date().toLocaleString("en-GB", {
+      timeZone: "Europe/London",
+      dateStyle: "medium",
+      timeStyle: "short",
+    });
+
+    // Every field the visitor gave us — this note is the full record of the enquiry.
     const note = [
-      "New website quote request",
-      `Service: ${service}`,
-      ...(postcode ? [`Postcode: ${postcode}`] : []),
+      "NEW WEBSITE QUOTE REQUEST",
+      `Submitted: ${submittedAt}`,
       "",
-      String(data.message),
+      "CONTACT",
+      `Name: ${fullName}`,
+      `Phone: ${phone}`,
+      `Email: ${email}`,
+      `Postcode: ${postcode || "Not given"}`,
+      "",
+      "JOB",
+      `Service: ${service}`,
+      `Approx size: ${scale || "Not given"}`,
+      `Timeframe: ${timeframe || "Not given"}`,
+      "",
+      "DETAILS",
+      String(data.message).trim(),
     ].join("\n");
     try {
       const res = await fetch(`${GHL_API}/contacts/${contactId}/notes`, {
