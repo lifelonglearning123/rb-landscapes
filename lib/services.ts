@@ -29,6 +29,7 @@ export const AREAS = [
 export const SERVICES: Service[] = [
   {
     slug: "block-paving",
+    related: ["paver-sealing", "driveway-installation", "dropped-kerbs"],
     name: "Block Paving",
     short: "Driveways and paths laid block by block, built on a proper sub-base.",
     headline: "Block paving driveways in Trowbridge & Wiltshire",
@@ -51,6 +52,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "resin-driveways",
+    related: ["driveway-installation", "drainage-work", "tarmac"],
     name: "Resin Driveways",
     short: "Smooth, permeable resin-bound surfacing in a wide range of aggregate blends.",
     headline: "Resin-bound driveways in Trowbridge & Wiltshire",
@@ -73,6 +75,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "tarmac",
+    related: ["driveway-sealing", "road-construction", "driveway-repairs"],
     name: "Tarmac Driveways",
     short: "Hard-wearing tarmacadam driveways, roads and hardstandings.",
     headline: "Tarmac driveways in Trowbridge & Wiltshire",
@@ -94,6 +97,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "patios",
+    related: ["landscaping", "drainage-work", "brickwork"],
     name: "Patios",
     short: "Indian sandstone, porcelain and slab patios, laid level and true.",
     headline: "Patio installation in Trowbridge & Wiltshire",
@@ -115,6 +119,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "landscaping",
+    related: ["patios", "fencing", "site-preparation"],
     name: "Landscaping",
     short: "Full garden transformations — levels, lawns, planting areas and more.",
     headline: "Garden landscaping in Trowbridge & Wiltshire",
@@ -136,6 +141,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "fencing",
+    related: ["landscaping", "decking", "brickwork"],
     name: "Fencing",
     short: "Closeboard, panel and decorative fencing with concrete or timber posts.",
     headline: "Fencing installation in Trowbridge & Wiltshire",
@@ -157,6 +163,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "decking",
+    related: ["patios", "landscaping", "fencing"],
     name: "Decking",
     short: "Timber and composite decking, from ground-level platforms to raised terraces.",
     headline: "Decking installation in Trowbridge & Wiltshire",
@@ -178,6 +185,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "artificial-grass",
+    related: ["landscaping", "site-preparation", "patios"],
     name: "Artificial Grass",
     short: "Realistic artificial lawns on a proper free-draining base.",
     headline: "Artificial grass installation in Trowbridge & Wiltshire",
@@ -199,6 +207,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "brickwork",
+    related: ["concrete-work", "landscaping", "drainage-work"],
     name: "Brickwork & Blockwork",
     short: "Garden walls, retaining walls, piers and general masonry.",
     headline: "Brickwork & blockwork in Trowbridge & Wiltshire",
@@ -219,6 +228,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "dropped-kerbs",
+    related: ["driveway-installation", "block-paving", "tarmac"],
     name: "Dropped Kerbs",
     short: "Council-compliant dropped kerb installation for new driveways.",
     headline: "Dropped kerb installation in Trowbridge & Wiltshire",
@@ -254,4 +264,7 @@ export const BUSINESS = {
   email: "Rblandscapesanddriveways@hotmail.com",
   address: { locality: "Trowbridge", region: "Wiltshire", postcode: "BA14 0BX", country: "GB" },
   tagline: "When we build, we build to last.",
+  hours: { opens: "00:00", closes: "23:45" }, // every day, as on the Google profile
+  googleMaps: "https://maps.google.com/maps?cid=2777185625217826947",
+  reviewLink: "https://search.google.com/local/writereview?placeid=ChIJB_DUlwrABKkRgwBuqpyLiiY",
 };

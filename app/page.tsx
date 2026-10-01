@@ -5,6 +5,9 @@ import { FEATURED, PORTFOLIO_STATS } from "@/lib/portfolio";
 import ProjectCard from "@/components/ProjectCard";
 import CTA from "@/components/CTA";
 
+// GHL reputation widget embed link (Reputation > Widgets); the section falls back to links without it
+const REVIEWS_EMBED_URL = process.env.NEXT_PUBLIC_GHL_REVIEWS_URL;
+
 const PROCESS = [
   {
     step: "01",
@@ -49,13 +52,15 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto flex min-h-[600px] max-w-6xl items-end px-5 pb-16 pt-28 md:min-h-[780px] md:items-center md:pb-24">
           <div className="max-w-3xl">
-            <p className="eyebrow mb-5 !text-turf-bright">
-              Driveways · Patios · Landscaping — Trowbridge, Wiltshire
-            </p>
-            <h1 className="font-[family-name:var(--font-display)] text-[2.25rem] font-extrabold leading-[0.98] tracking-tight sm:text-6xl sm:leading-[0.95] md:text-7xl">
-              When we build,
-              <br />
-              we build <span className="text-turf-bright">to last.</span>
+            <h1>
+              <span className="eyebrow mb-5 block !text-turf-bright">
+                Driveways, patios &amp; landscaping in Trowbridge, Wiltshire
+              </span>
+              <span className="block font-[family-name:var(--font-display)] text-[2.25rem] font-extrabold leading-[0.98] tracking-tight sm:text-6xl sm:leading-[0.95] md:text-7xl">
+                When we build,
+                <br />
+                we build <span className="text-turf-bright">to last.</span>
+              </span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-paper/85">
               Block paving, resin and tarmac driveways, patios, fencing and full garden
@@ -169,6 +174,37 @@ export default function Home() {
             <Link href="/portfolio" className="btn-slab">
               See the full portfolio
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews */}
+      <section className="mx-auto max-w-6xl px-5 pt-16 md:pt-24">
+        <div className="border-2 border-tarmac bg-white p-6 md:p-10">
+          <p className="eyebrow mb-3">Reviews</p>
+          <h2 className="max-w-2xl font-[family-name:var(--font-display)] text-3xl font-extrabold tracking-tight md:text-4xl">
+            Don&apos;t take our word for it.
+          </h2>
+          <p className="mt-4 max-w-2xl leading-relaxed text-ink-soft">
+            Our reviews live on our Google profile, where we can&apos;t edit them. Have a read
+            before you call — and if we&apos;ve built something for you, we&apos;d be grateful if
+            you added yours.
+          </p>
+          {REVIEWS_EMBED_URL && (
+            <iframe
+              src={REVIEWS_EMBED_URL}
+              title="Customer reviews"
+              loading="lazy"
+              className="mt-8 h-[600px] w-full border-0"
+            />
+          )}
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a href={BUSINESS.googleMaps} target="_blank" rel="noopener noreferrer" className="btn-slab">
+              Read our Google reviews
+            </a>
+            <a href={BUSINESS.reviewLink} target="_blank" rel="noopener noreferrer" className="btn-ghost">
+              Leave a review
+            </a>
           </div>
         </div>
       </section>

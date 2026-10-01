@@ -84,6 +84,9 @@ export default async function ServicePage({
             {service.headline}
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-ink-soft leading-relaxed">{service.intro}</p>
+          <p className="mt-4 font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.14em] text-ink-soft">
+            {BUSINESS.address.locality}-based · {service.name} across Wiltshire, Bath &amp; Somerset
+          </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a href="#quote" className="btn-slab">Get a free quote</a>
             <a href={`tel:${BUSINESS.phoneHref}`} className="btn-ghost">Call {BUSINESS.phone}</a>

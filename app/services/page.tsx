@@ -5,7 +5,8 @@ import { MORE_SERVICES } from "@/lib/more-services";
 import CTA from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "Our Services",
+  title: "Driveway, Patio & Landscaping Services in Trowbridge",
+  alternates: { canonical: "/services" },
   description:
     "Block paving, resin and tarmac driveways, patios, landscaping, fencing, decking, artificial grass, brickwork and dropped kerbs across Trowbridge and Wiltshire.",
 };

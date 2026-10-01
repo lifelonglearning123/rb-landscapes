@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import QuoteForm from "@/components/QuoteForm";
-import { BUSINESS } from "@/lib/services";
+import { BUSINESS, ALL_SERVICES } from "@/lib/services";
+import { AREA_PAGES } from "@/lib/areas";
 
 export const metadata: Metadata = {
-  title: "Get a Free Quote",
+  title: "Contact & Free Quote | Trowbridge, Wiltshire",
+  alternates: { canonical: "/contact" },
   description:
     "Request a free, no-obligation quote for driveways, patios, landscaping and fencing in Trowbridge and Wiltshire. Call 01225 267063 or send the form.",
 };
@@ -92,7 +94,22 @@ export default function ContactPage() {
                   </dt>
                   <dd className="mt-1 text-sm">
                     {BUSINESS.address.locality}, {BUSINESS.address.region} {BUSINESS.address.postcode}
+                    <br />
+                    <a
+                      className="underline decoration-turf underline-offset-2"
+                      href={BUSINESS.googleMaps}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Find us on Google Maps
+                    </a>
                   </dd>
+                </div>
+                <div className="border-t border-line pt-4">
+                  <dt className="font-[family-name:var(--font-mono)] text-[0.66rem] uppercase tracking-[0.16em] text-ink-soft">
+                    Opening hours
+                  </dt>
+                  <dd className="mt-1 text-sm">Monday to Sunday · open all day</dd>
                 </div>
               </dl>
             </div>
@@ -115,6 +132,41 @@ export default function ContactPage() {
         {/* Wizard */}
         <div className="lg:col-span-3">
           <QuoteForm />
+        </div>
+      </section>
+
+      <section className="border-t border-line bg-stone">
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-2 md:py-20">
+          <div>
+            <p className="eyebrow mb-4">Areas we cover</p>
+            <ul className="flex flex-wrap gap-2">
+              {AREA_PAGES.map((a) => (
+                <li key={a.slug}>
+                  <Link
+                    href={`/areas/${a.slug}`}
+                    className="inline-block border border-line bg-white px-3 py-2 font-[family-name:var(--font-mono)] text-xs hover:border-tarmac"
+                  >
+                    {a.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="eyebrow mb-4">What we can quote for</p>
+            <ul className="flex flex-wrap gap-2">
+              {ALL_SERVICES.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    href={`/services/${s.slug}`}
+                    className="inline-block border border-line bg-white px-3 py-2 font-[family-name:var(--font-mono)] text-xs hover:border-tarmac"
+                  >
+                    {s.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
     </>

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import CTA from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About Us | Trowbridge, Wiltshire",
+  alternates: { canonical: "/about" },
   description:
     "R&B Landscapes and Driveways is a Trowbridge-based team of builders and installers with a reputation across Wiltshire for exceptional customer support and perfect finishes.",
 };

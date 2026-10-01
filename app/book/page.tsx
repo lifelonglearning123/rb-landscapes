@@ -4,6 +4,7 @@ import { BUSINESS } from "@/lib/services";
 
 export const metadata: Metadata = {
   title: "Book a Free Site Visit",
+  alternates: { canonical: "/book" },
   description:
     "Book a free, no-obligation site visit and quote with R&B Landscapes and Driveways in Trowbridge, Wiltshire.",
 };

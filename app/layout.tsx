@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     default: "R&B Landscapes and Driveways | Driveways, Patios & Landscaping in Trowbridge, Wiltshire",
     template: "%s | R&B Landscapes and Driveways",
   },
+  alternates: { canonical: "/" },
   description:
     "Block paving, resin and tarmac driveways, patios, fencing, decking and full garden landscaping across Trowbridge and Wiltshire. Free quotes — when we build, we build to last.",
   openGraph: {
@@ -59,6 +60,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       postalCode: BUSINESS.address.postcode,
       addressCountry: BUSINESS.address.country,
     },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        opens: BUSINESS.hours.opens,
+        closes: BUSINESS.hours.closes,
+      },
+    ],
+    hasMap: BUSINESS.googleMaps,
+    sameAs: [BUSINESS.googleMaps],
     areaServed: AREAS.map((a) => ({ "@type": "City", name: a })),
     makesOffer: ALL_SERVICES.map((s) => ({
       "@type": "Offer",

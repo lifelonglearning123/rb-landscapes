@@ -5,6 +5,7 @@ import CTA from "@/components/CTA";
 
 export const metadata: Metadata = {
   title: "Areas We Cover",
+  alternates: { canonical: "/areas" },
   description:
     "R&B Landscapes and Driveways works from Trowbridge across west Wiltshire, Bath, Swindon and into Somerset. See what's involved in building where you live.",
 };

@@ -23,6 +23,8 @@ export default function Footer() {
           <address className="mt-5 not-italic text-sm leading-relaxed text-paper/75">
             {BUSINESS.address.locality}, {BUSINESS.address.region} {BUSINESS.address.postcode}
             <br />
+            Open every day
+            <br />
             <a href={`tel:${BUSINESS.phoneHref}`} className="hover:text-paper underline decoration-turf-bright">
               {BUSINESS.phone}
             </a>
@@ -44,6 +46,9 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+          <Link href="/services" className="mt-3 inline-block text-sm text-paper/75 hover:text-paper underline decoration-turf-bright">
+            All services →
+          </Link>
         </div>
 
         <div>

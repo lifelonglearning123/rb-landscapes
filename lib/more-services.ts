@@ -7,7 +7,7 @@ export const MORE_SERVICES: Service[] = [
     slug: "driveway-installation",
     name: "Driveway Installation",
     short: "New driveways in block paving, resin or tarmac — surveyed, based and built by one team.",
-    headline: "Driveway installation in Bath BA1",
+    headline: "Driveway installation in Trowbridge & Wiltshire",
     intro:
       "A new driveway is mostly a groundworks job with a nice surface on top. We survey the site, help you choose between block paving, resin and tarmac, and build the whole thing — dig-out, sub-base, drainage, edging and surface — with our own team.",
     body: [
@@ -38,7 +38,7 @@ export const MORE_SERVICES: Service[] = [
     slug: "driveway-replacement",
     name: "Driveway Replacement",
     short: "Old drive past repairing? We take it out and rebuild it properly from the base up.",
-    headline: "Driveway replacement in Bath BA1",
+    headline: "Driveway replacement in Trowbridge & Wiltshire",
     intro:
       "When a driveway has sunk, cracked right through or holds water every time it rains, patching it is money down the drain. We break out and remove the old surface, find out why it failed, and rebuild it from the sub-base up so the same problem doesn't come back.",
     body: [
@@ -69,7 +69,7 @@ export const MORE_SERVICES: Service[] = [
     slug: "driveway-repairs",
     name: "Driveway Repairs",
     short: "Sunken blocks, potholes, broken edges and failed patches put right.",
-    headline: "Driveway repairs in Bath BA1",
+    headline: "Driveway repairs in Trowbridge & Wiltshire",
     intro:
       "Not every tired driveway needs replacing. Sunken areas, potholes, loose or broken blocks, crumbling edges and lifted sections can often be put right for a fraction of the cost of a new drive — as long as the repair deals with the cause, not just the hole.",
     body: [
@@ -100,7 +100,7 @@ export const MORE_SERVICES: Service[] = [
     slug: "crack-filling-and-sealing",
     name: "Crack Filling & Sealing",
     short: "Cracks in tarmac and concrete cleaned out, filled and sealed before water gets in.",
-    headline: "Crack filling and sealing in Bath BA1",
+    headline: "Crack filling and sealing in Trowbridge & Wiltshire",
     intro:
       "A crack in tarmac or concrete is a way in for water. Left alone, rain gets under the surface, freezes, lifts it and turns a line you could cover with your thumb into a pothole. Filling and sealing cracks early is the cheapest maintenance a hard surface will ever get.",
     body: [
@@ -130,7 +130,7 @@ export const MORE_SERVICES: Service[] = [
     slug: "driveway-sealing",
     name: "Driveway Sealing",
     short: "Protective sealing for tarmac, concrete and patterned driveways.",
-    headline: "Driveway sealing in Bath BA1",
+    headline: "Driveway sealing in Trowbridge & Wiltshire",
     intro:
       "Sealing puts a protective coat over a driveway so water, oil and weather stay on the surface instead of soaking in. On tarmac it restores the deep colour and slows the surface drying out and fretting; on concrete it resists staining and frost damage.",
     body: [
@@ -161,7 +161,7 @@ export const MORE_SERVICES: Service[] = [
     slug: "paver-sealing",
     name: "Paver Sealing",
     short: "Block paving cleaned, re-sanded and sealed to lock the joints and hold the colour.",
-    headline: "Paver sealing in Bath BA1",
+    headline: "Paver sealing in Trowbridge & Wiltshire",
     intro:
       "Block paving relies on the sand in its joints. Once pressure washing, rain and ants have taken that sand out, the blocks loosen, weeds move in and the drive starts to look older than it is. Paver sealing puts the sand back and locks it in place.",
     body: [
@@ -192,7 +192,7 @@ export const MORE_SERVICES: Service[] = [
     slug: "concrete-work",
     name: "Concrete Work",
     short: "Bases, slabs, paths and footings — formed, poured and finished properly.",
-    headline: "Concrete work in Bath BA1",
+    headline: "Concrete work in Trowbridge & Wiltshire",
     intro:
       "Concrete is unforgiving: once it's poured, whatever you got wrong is permanent. We form, pour and finish concrete bases, slabs, paths, hardstandings and footings, with the ground preparation and reinforcement the job actually calls for.",
     body: [
@@ -223,7 +223,7 @@ export const MORE_SERVICES: Service[] = [
     slug: "site-preparation",
     name: "Site Preparation",
     short: "Clearance, excavation, levelling and sub-bases — the groundwork before the build.",
-    headline: "Site preparation in Bath BA1",
+    headline: "Site preparation in Trowbridge & Wiltshire",
     intro:
       "Everything we build sits on groundwork, and we do that groundwork ourselves. Site preparation covers clearing the plot, digging out, sorting the levels and laying a compacted base — leaving ground that's ready for a driveway, patio, building base or lawn.",
     body: [
@@ -254,7 +254,7 @@ export const MORE_SERVICES: Service[] = [
     slug: "drainage-work",
     name: "Drainage Work",
     short: "Channel drains, soakaways and falls that keep water off drives, patios and walls.",
-    headline: "Drainage work in Bath BA1",
+    headline: "Drainage work in Trowbridge & Wiltshire",
     intro:
       "Water is behind most of the failed driveways and patios we're asked to look at. We install the drainage that stops it: channel drains, gullies, soakaways and land drains, with surfaces laid to falls so rainwater has somewhere to go that isn't your garage or your neighbour's path.",
     body: [
@@ -285,7 +285,7 @@ export const MORE_SERVICES: Service[] = [
     slug: "road-construction",
     name: "Road Construction",
     short: "Private roads, shared access drives, farm tracks and estate roads built and resurfaced.",
-    headline: "Road construction in Bath BA1",
+    headline: "Road construction in Trowbridge & Wiltshire",
     intro:
       "We build and resurface private roads: shared access drives, lanes to farms and yards, and roads serving small developments and estates. It's the same discipline as a driveway, built deeper and stronger for heavier vehicles and more of them.",
     body: [
@@ -316,7 +316,7 @@ export const MORE_SERVICES: Service[] = [
     slug: "parking-lot-repair-and-maintenance",
     name: "Car Park Repair & Maintenance",
     short: "Pothole repairs, resurfacing and upkeep for car parks, yards and forecourts.",
-    headline: "Car park repair and maintenance in Bath BA1",
+    headline: "Car park repair and maintenance in Trowbridge & Wiltshire",
     intro:
       "A car park full of potholes is a trip hazard, a suspension-breaker and the first thing your customers or tenants see. We repair and maintain car parks, forecourts and yards for businesses, landlords and management companies — from a single pothole to a full resurface.",
     body: [
