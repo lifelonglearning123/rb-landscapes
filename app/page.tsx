@@ -204,6 +204,12 @@ export default function Home() {
                 finishes and top-quality materials. If you&apos;re near one of these towns, you&apos;re
                 in our patch — and if you&apos;re not sure, just ask.
               </p>
+              <Link
+                href="/areas"
+                className="mt-5 inline-block font-[family-name:var(--font-mono)] text-sm text-turf underline underline-offset-4"
+              >
+                All areas we cover →
+              </Link>
             </div>
             <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
               {AREAS.map((a) => (

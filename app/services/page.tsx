@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SERVICES } from "@/lib/services";
+import { MORE_SERVICES } from "@/lib/more-services";
 import CTA from "@/components/CTA";
 
 export const metadata: Metadata = {
@@ -41,6 +42,30 @@ export default function ServicesPage() {
             </span>
           </Link>
         ))}
+      </section>
+
+      <section className="border-t border-line bg-stone">
+        <div className="mx-auto max-w-6xl px-5 py-14 md:py-20">
+          <p className="eyebrow mb-3">Repairs, groundworks &amp; maintenance</p>
+          <h2 className="font-[family-name:var(--font-display)] font-extrabold text-3xl md:text-4xl tracking-tight max-w-2xl">
+            The work under, around and after the surface.
+          </h2>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {MORE_SERVICES.map((s) => (
+              <Link
+                key={s.slug}
+                href={`/services/${s.slug}`}
+                className="group border border-line bg-white p-5 hover:border-tarmac transition-colors"
+              >
+                <h3 className="font-[family-name:var(--font-display)] font-bold text-lg">{s.name}</h3>
+                <p className="mt-2 text-sm text-ink-soft leading-relaxed">{s.short}</p>
+                <span className="mt-3 inline-block font-[family-name:var(--font-mono)] text-xs tracking-[0.16em] uppercase text-turf">
+                  View service →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
       </section>
 
       <CTA title="Not sure which service you need?" text="Describe the job and we'll tell you exactly what it involves — and what it'll cost." />

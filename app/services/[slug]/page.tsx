@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { SERVICES, getService, BUSINESS } from "@/lib/services";
+import { ALL_SERVICES, getService, BUSINESS } from "@/lib/services";
+import { AREA_PAGES } from "@/lib/areas";
 import { projectsForService } from "@/lib/portfolio";
 import ProjectCard from "@/components/ProjectCard";
 import QuoteForm from "@/components/QuoteForm";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rblandscapesanddriveways.com";
 
+const DEFAULT_PRICING =
+  "We don't publish a price list, because no two sites cost the same to build on. Your quote comes from a free site survey: we measure the area, check the ground, levels, drainage and access, and agree materials with you. You then get a fixed written price for the whole job before anything is booked.";
+
 export function generateStaticParams() {
-  return SERVICES.map((s) => ({ slug: s.slug }));
+  return ALL_SERVICES.map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({
@@ -37,6 +41,9 @@ export default async function ServicePage({
   if (!service) notFound();
 
   const related = projectsForService(slug);
+  const relatedServices = (service.related ?? [])
+    .map((s) => getService(s))
+    .filter((s) => s !== undefined);
 
   const schema = {
     "@context": "https://schema.org",
@@ -46,7 +53,8 @@ export default async function ServicePage({
         name: service.name,
         description: service.intro,
         provider: { "@id": `${SITE_URL}/#business` },
-        areaServed: "Wiltshire, UK",
+        serviceType: service.name,
+        areaServed: AREA_PAGES.map((a) => ({ "@type": "Place", name: a.name })),
         url: `${SITE_URL}/services/${service.slug}`,
       },
       {
@@ -89,6 +97,23 @@ export default async function ServicePage({
             <p key={i} className="text-ink-soft leading-relaxed">{p}</p>
           ))}
 
+          {service.steps && (
+            <div className="pt-6">
+              <p className="eyebrow mb-4">What {service.name.toLowerCase()} involves</p>
+              <ol className="space-y-5">
+                {service.steps.map((s, i) => (
+                  <li key={s.title} className="border-t-4 border-turf pt-4">
+                    <span className="font-[family-name:var(--font-mono)] text-sm text-turf">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h2 className="mt-1 font-[family-name:var(--font-display)] font-bold">{s.title}</h2>
+                    <p className="mt-1 text-sm text-ink-soft leading-relaxed">{s.text}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
+
           <div className="pt-6 space-y-4">
             {service.benefits.map((b) => (
               <div key={b.title} className="border-l-4 border-turf bg-white p-5">
@@ -96,6 +121,11 @@ export default async function ServicePage({
                 <p className="mt-1 text-sm text-ink-soft leading-relaxed">{b.text}</p>
               </div>
             ))}
+          </div>
+
+          <div className="pt-8">
+            <p className="eyebrow mb-4">What it costs</p>
+            <p className="text-ink-soft leading-relaxed">{service.pricing ?? DEFAULT_PRICING}</p>
           </div>
 
           <div className="pt-8">
@@ -112,6 +142,40 @@ export default async function ServicePage({
               ))}
             </div>
           </div>
+
+          <div className="pt-8">
+            <p className="eyebrow mb-4">Areas we do this in</p>
+            <ul className="flex flex-wrap gap-2">
+              {AREA_PAGES.map((a) => (
+                <li key={a.slug}>
+                  <Link
+                    href={`/areas/${a.slug}`}
+                    className="inline-block border border-line bg-white px-3 py-2 font-[family-name:var(--font-mono)] text-xs hover:border-tarmac"
+                  >
+                    {a.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {relatedServices.length > 0 && (
+            <div className="pt-8">
+              <p className="eyebrow mb-4">Related services</p>
+              <ul className="space-y-2">
+                {relatedServices.map((s) => (
+                  <li key={s.slug}>
+                    <Link
+                      href={`/services/${s.slug}`}
+                      className="font-[family-name:var(--font-mono)] text-sm text-turf underline underline-offset-4"
+                    >
+                      {s.name} →
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         <aside id="quote" className="lg:col-span-2">

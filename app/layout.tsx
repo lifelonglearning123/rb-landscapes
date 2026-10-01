@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileCallBar from "@/components/MobileCallBar";
-import { BUSINESS, SERVICES, AREAS } from "@/lib/services";
+import { BUSINESS, ALL_SERVICES, AREAS } from "@/lib/services";
 
 const bricolage = localFont({
   src: "./fonts/Bricolage.ttf",
@@ -60,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       addressCountry: BUSINESS.address.country,
     },
     areaServed: AREAS.map((a) => ({ "@type": "City", name: a })),
-    makesOffer: SERVICES.map((s) => ({
+    makesOffer: ALL_SERVICES.map((s) => ({
       "@type": "Offer",
       itemOffered: { "@type": "Service", name: s.name, url: `${SITE_URL}/services/${s.slug}` },
     })),

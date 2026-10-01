@@ -1,3 +1,5 @@
+import { MORE_SERVICES } from "./more-services";
+
 export type Service = {
   slug: string;
   name: string;
@@ -7,6 +9,9 @@ export type Service = {
   body: string[];
   benefits: { title: string; text: string }[];
   faqs: { q: string; a: string }[];
+  steps?: { title: string; text: string }[];
+  pricing?: string;
+  related?: string[];
 };
 
 export const AREAS = [
@@ -235,8 +240,10 @@ export const SERVICES: Service[] = [
   },
 ];
 
+export const ALL_SERVICES: Service[] = [...SERVICES, ...MORE_SERVICES];
+
 export function getService(slug: string) {
-  return SERVICES.find((s) => s.slug === slug);
+  return ALL_SERVICES.find((s) => s.slug === slug);
 }
 
 export const BUSINESS = {

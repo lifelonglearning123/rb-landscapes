@@ -49,6 +49,10 @@ export default function Footer() {
         <div>
           <p className="eyebrow !text-turf-bright mb-4">Areas we cover</p>
           <p className="text-sm text-paper/75 leading-relaxed">{AREAS.join(" · ")}</p>
+          <Link href="/areas" className="mt-3 inline-block text-sm text-paper/75 hover:text-paper underline decoration-turf-bright">
+            All areas we cover →
+          </Link>
+          <br />
           <Link href="/contact" className="btn-slab btn-slab-light mt-6 text-sm">
             Get a free quote
           </Link>
