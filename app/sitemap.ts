@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SERVICES } from "@/lib/services";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rblandscapesanddriveways.com";
+import { AREAS } from "@/lib/areas";
+import { SITE_URL } from "@/lib/schema";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = ["", "/services", "/portfolio", "/about", "/contact", "/book"].map((p) => ({
@@ -12,5 +12,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${SITE_URL}/services/${s.slug}`,
     lastModified: new Date(),
   }));
-  return [...staticPages, ...servicePages];
+  const areaPages = AREAS.map((a) => ({
+    url: `${SITE_URL}/areas/${a.slug}`,
+    lastModified: new Date(),
+  }));
+  return [...staticPages, ...servicePages, ...areaPages];
 }

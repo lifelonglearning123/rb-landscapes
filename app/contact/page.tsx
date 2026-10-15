@@ -1,13 +1,27 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import QuoteForm from "@/components/QuoteForm";
+import Faqs from "@/components/Faqs";
 import { BUSINESS } from "@/lib/services";
+import { SITE_URL, faqSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Get a Free Quote",
+  title: { absolute: "Contact R & B Landscapes and Driveways" },
   description:
-    "Request a free, no-obligation quote for driveways, patios, landscaping and fencing in Trowbridge and Wiltshire. Call 01225 267063 or send the form.",
+    "Contact R & B Landscapes and Driveways in Trowbridge: call 01225 267063, open 7 days, or send the form for a free, no-obligation quote. Directions to 24 Pitman Drive.",
+  alternates: { canonical: `${SITE_URL}/contact` },
 };
+
+const FAQS = [
+  {
+    q: "What are your opening hours?",
+    a: "We're open seven days a week, 00:00 to 23:45 every day, and the phone line is answered around the clock. Site visits are arranged at a time that suits you.",
+  },
+  {
+    q: "Do you charge for call-outs?",
+    a: "No. There's no call-out fee, and the site visit and written quote are free with no obligation.",
+  },
+];
 
 const TRUST = [
   "Free written quote",
@@ -17,14 +31,21 @@ const TRUST = [
 ];
 
 export default function ContactPage() {
+  const schema = { "@context": "https://schema.org", ...faqSchema(FAQS) };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+
       {/* Slim header band */}
       <section className="border-b border-line bg-stone">
         <div className="mx-auto max-w-6xl px-5 py-12 md:py-16">
           <p className="eyebrow mb-4">Contact · Free quote</p>
           <h1 className="max-w-3xl font-[family-name:var(--font-display)] text-4xl font-extrabold tracking-tight md:text-5xl">
-            Let&apos;s price your project.
+            Contact R &amp; B Landscapes and Driveways
           </h1>
           <p className="mt-4 max-w-2xl leading-relaxed text-ink-soft">
             Answer three quick questions and we&apos;ll get back to you to arrange a visit — or in
@@ -60,7 +81,7 @@ export default function ContactPage() {
         <aside className="lg:col-span-2">
           <div className="lg:sticky lg:top-24">
             <div className="border-l-4 border-turf bg-white p-6 shadow-[0_18px_44px_-24px_rgba(24,28,34,0.35)]">
-              <p className="eyebrow mb-5">The site office</p>
+              <h2 className="eyebrow mb-5">How to reach us</h2>
 
               <dl className="space-y-5">
                 <div>
@@ -88,10 +109,30 @@ export default function ContactPage() {
                 </div>
                 <div className="border-t border-line pt-4">
                   <dt className="font-[family-name:var(--font-mono)] text-[0.66rem] uppercase tracking-[0.16em] text-ink-soft">
-                    Based in
+                    Opening hours
                   </dt>
                   <dd className="mt-1 text-sm">
-                    {BUSINESS.address.locality}, {BUSINESS.address.region} {BUSINESS.address.postcode}
+                    Monday – Sunday, 00:00 – 23:45
+                  </dd>
+                </div>
+                <div className="border-t border-line pt-4">
+                  <dt className="font-[family-name:var(--font-mono)] text-[0.66rem] uppercase tracking-[0.16em] text-ink-soft">
+                    Where we are
+                  </dt>
+                  <dd className="mt-1 text-sm">
+                    <address className="not-italic leading-relaxed">
+                      {BUSINESS.address.street}
+                      <br />
+                      {BUSINESS.address.locality}, {BUSINESS.address.region} {BUSINESS.address.postcode}
+                    </address>
+                    <a
+                      href={BUSINESS.hasMap}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 inline-block font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.14em] text-turf underline underline-offset-4"
+                    >
+                      Get directions →
+                    </a>
                   </dd>
                 </div>
               </dl>
@@ -115,6 +156,11 @@ export default function ContactPage() {
         {/* Wizard */}
         <div className="lg:col-span-3">
           <QuoteForm />
+
+          <div className="mt-12">
+            <h2 className="eyebrow mb-4">Common questions</h2>
+            <Faqs faqs={FAQS} />
+          </div>
         </div>
       </section>
     </>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { BUSINESS, SERVICES, AREAS } from "@/lib/services";
+import { BUSINESS, SERVICES } from "@/lib/services";
+import { AREAS } from "@/lib/areas";
 
 export default function Footer() {
   return (
@@ -21,7 +22,7 @@ export default function Footer() {
             {BUSINESS.tagline}
           </p>
           <address className="mt-5 not-italic text-sm leading-relaxed text-paper/75">
-            {BUSINESS.address.locality}, {BUSINESS.address.region} {BUSINESS.address.postcode}
+            {BUSINESS.address.street}, {BUSINESS.address.locality} {BUSINESS.address.postcode}
             <br />
             <a href={`tel:${BUSINESS.phoneHref}`} className="hover:text-paper underline decoration-turf-bright">
               {BUSINESS.phone}
@@ -48,7 +49,18 @@ export default function Footer() {
 
         <div>
           <p className="eyebrow !text-turf-bright mb-4">Areas we cover</p>
-          <p className="text-sm text-paper/75 leading-relaxed">{AREAS.join(" · ")}</p>
+          <ul className="flex flex-wrap gap-x-3 gap-y-1.5 text-sm">
+            <li>
+              <Link href="/" className="text-paper/75 hover:text-paper">Trowbridge</Link>
+            </li>
+            {AREAS.map((a) => (
+              <li key={a.slug}>
+                <Link href={`/areas/${a.slug}`} className="text-paper/75 hover:text-paper">
+                  {a.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
           <Link href="/contact" className="btn-slab btn-slab-light mt-6 text-sm">
             Get a free quote
           </Link>

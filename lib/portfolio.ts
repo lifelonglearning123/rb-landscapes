@@ -40,7 +40,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "render-bay-resin",
     title: "Resin-bound driveway",
-    serviceSlug: "resin-driveways",
+    serviceSlug: "resin",
     serviceLabel: "Resin Driveway",
     summary:
       "A worn approach rebuilt as a smooth, permeable resin-bound driveway with a crisp tarmac apron down to the road.",
@@ -81,7 +81,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "grey-render-resin",
     title: "Light-grey resin driveway",
-    serviceSlug: "resin-driveways",
+    serviceSlug: "resin",
     serviceLabel: "Resin Driveway",
     summary:
       "New sub-base and block edging topped with a seamless light-grey resin-bound surface — permeable, weed-free and low maintenance.",
@@ -117,7 +117,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "redbrick-resin",
     title: "Buff resin-bound driveway",
-    serviceSlug: "resin-driveways",
+    serviceSlug: "resin",
     serviceLabel: "Resin Driveway",
     summary:
       "A clean buff resin-bound driveway laid kerb-to-threshold with a block-paved border and tarmac apron.",
@@ -128,7 +128,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "pebbledash-frontage",
     title: "New driveway & boundary wall",
-    serviceSlug: "brickwork",
+    serviceSlug: "brickwork-and-blockwork",
     serviceLabel: "Brickwork",
     summary:
       "Off-street parking created with a new low brick boundary wall and a resurfaced approach.",

@@ -6,7 +6,7 @@ import CTA from "@/components/CTA";
 export const metadata: Metadata = {
   title: "Our Services",
   description:
-    "Block paving, resin and tarmac driveways, patios, landscaping, fencing, decking, artificial grass, brickwork and dropped kerbs across Trowbridge and Wiltshire.",
+    "Driveways, block paving, resin, tarmac, patios, landscaping, fencing, decking, walls, concrete, drainage, dropped kerbs and access roads across Trowbridge and Wiltshire.",
 };
 
 export default function ServicesPage() {
